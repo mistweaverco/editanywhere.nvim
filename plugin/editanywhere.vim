@@ -58,7 +58,16 @@ function! editanywhere#syncTempFileWithServer(...)
         let basedir = s:GetBasedir()
         let filepath = get(a:, 1, buffername)
 	let parts = split(filepath, '/\+')
+
 	if len(parts) < 4
+		return
+	endif
+
+	if parts[0] != "tmp"
+		return
+	endif
+
+	if parts[1] != "EditAnywhere"
 		return
 	endif
 
