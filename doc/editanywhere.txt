@@ -1,0 +1,36 @@
+*editanywhere.txt*  A Neovim plugin to browse EditAnywhere ressources.
+
+Author:  Marco Kellershoff <https://about.walialu.com/>
+License: MIT License (see |license|)
+
+INTRODUCTION                                    *editanywhere*
+
+This plugin's main purpose is to browse and edit EditAnywhere Server
+ressources.
+
+You have to have the [EditAnywhere Server](https://github.com/superevilmegaco/editanywhere-server)
+installed and running.
+
+You also need to have [curl](https://curl.haxx.se/) and
+[jq](https://stedolan.github.io/jq/) installed.
+
+
+COMMANDS                                        *editanywhere-commands*
+
+editanywhere					      *:EditAnywhereBrowse*
+
+        Browse and edit EditAnywhere Server ressources.
+
+
+MAPPINGS                                        *editanywhere-mappings*
+
+There are no mappings registered by the plugin.
+You need to map it according to your preference.
+
+ABOUT                                           *editanywhere-about*
+
+Grab the latest version or report a bug:
+
+http://github.com/superevilmegaco/editanywhere.nvim
+
+ vim:tw=78:et:ft=help:norl:
