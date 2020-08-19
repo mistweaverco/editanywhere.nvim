@@ -74,8 +74,7 @@ function! editanywhere#syncTempFileWithServer(...)
 	let appId = parts[2]
 	let ressourceId = s:GetFilenameWithoutExtension()
 	let file_extension = s:GetFileExtension()
-	let contents = s:GetCurrentBufferContentsAsString()
-
+	let contents = s:encodeURIComponent(s:GetCurrentBufferContentsAsString())
         let cmd =  'curl -s ' . s:EDITANYWHERE_BASE_URL . appId . '/' . ressourceId . ' -d "content='.contents.'&file_extension='.file_extension.'" | jq -r .'
 	let response = system(cmd)
 endfunction
@@ -147,7 +146,7 @@ endfunction
 
 function! editanywhere#openRessource(appId, ressourceId)
         let cmd =  'curl -s ' . s:EDITANYWHERE_BASE_URL . a:appId . '/' . a:ressourceId . ' | jq -r .'
-	let fileExtension = system(cmd . 'file_extension')
+	let fileExtension = trim(system(cmd . 'file_extension'))
 	let content = system(cmd . 'content')
 	let dir_loc = s:EDITANYWHERE_TMP_DIR . a:appId . '/'
 	let file_loc = a:ressourceId . fileExtension
